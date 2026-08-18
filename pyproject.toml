@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fnv-source-atlas"
+version = "0.5.0"
+description = "Lossless PC/Xbox 360 symbol identities and evidence-backed mappings for Fallout: New Vegas"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Andrew Markham"}]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/amarkham23/fnv-source-atlas"
+Repository = "https://github.com/amarkham23/fnv-source-atlas"
+Issues = "https://github.com/amarkham23/fnv-source-atlas/issues"
+
+[project.scripts]
+fnv-atlas = "fnv_atlas.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = false
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,46 @@
+* text=auto
+.gitattributes text eol=lf
+.gitignore text eol=lf
+MANIFEST.in text eol=lf
+
+# Producer source IDs hash raw Python bytes.  Pin portable text formats so a
+# checkout does not acquire a different identity through core.autocrlf.
+*.py text eol=lf
+*.pyi text eol=lf
+*.md text eol=lf
+*.toml text eol=lf
+*.sql text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.sh text eol=lf
+*.bash text eol=lf
+*.zsh text eol=lf
+*.fish text eol=lf
+*.ps1 text eol=lf
+*.cmd text eol=lf
+*.bat text eol=lf
+
+# Derived/proprietary inputs and release artifacts are always byte-preserved.
+*.exe binary
+*.pdb binary
+*.sqlite binary
+*.sqlite3 binary
+*.zip binary
+*.whl binary
+*.tar binary
+*.gz binary
+*.bz2 binary
+*.xz binary
+*.7z binary
+*.dll binary
+*.lib binary
+*.obj binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.pdf binary

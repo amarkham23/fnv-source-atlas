@@ -1,0 +1,30 @@
+include .gitattributes
+include LICENSE
+include MANIFEST.in
+include README.md
+include pyproject.toml
+
+# Public project documentation. Keep this list aligned with the publication
+# boundary instead of recursively accepting every file placed under docs/.
+include docs/CONTRIBUTING.md
+include docs/CONSUMER_EXPORTS.md
+include docs/DATA_MODEL.md
+include docs/DATA_SOURCES.md
+include docs/MAINTENANCE.md
+include docs/PUBLICATION.md
+include docs/REVIEW_WORKFLOW.md
+
+recursive-include tests test_*.py
+include scripts/build_research_preview.py
+include scripts/build_source_package.py
+
+# Package code is discovered by setuptools; this declaration also makes the
+# source-distribution boundary explicit for manifest review.
+recursive-include src/fnv_atlas *.py
+
+prune build
+prune dist
+global-exclude *.py[cod]
+global-exclude *.pdb *.exe *.sqlite *.sqlite3 *.db
+global-exclude *.zip *.whl *.tar *.gz *.bz2 *.xz *.7z
+global-exclude *.dll *.lib *.obj *.dmp *.xex
