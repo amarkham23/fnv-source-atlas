@@ -13,6 +13,34 @@ tree or mean every candidate mapping is correct. Its value is that another
 author or agent can ask precise questions, see the ambiguity and provenance,
 record review decisions, and export only explicitly accepted exact mappings.
 
+## Download the atlas
+
+The complete schema-8 SQLite atlas is available from the
+[v0.5.0 release](https://github.com/amarkham23/fnv-source-atlas/releases/tag/v0.5.0)
+as `fnv-source-atlas-data-0.5.0.zip`. The download is about 752 MiB and expands
+to a 3.93 GiB database. Its SHA-256 is
+`2d4713502310a4ba00872ceb260e5f04c1b41e19291e381540183e27c4af07a9`.
+
+```powershell
+Expand-Archive .\fnv-source-atlas-data-0.5.0.zip -DestinationPath .\atlas-data
+$db = ".\atlas-data\fnv-source-atlas-data-0.5.0\fnv-source-atlas.sqlite"
+
+# From a clone of this repository:
+$env:PYTHONPATH = "$PWD\src"
+python -m fnv_atlas summary $db
+python -m fnv_atlas pc $db 0x4534f0 --json
+python -m fnv_atlas class $db Actor --exact --json
+python -m fnv_atlas candidates $db --kind all --limit 25 --json
+```
+
+The data archive contains the queryable database, a sanitized build report,
+and checksums. It does not contain the original PDB, executables, raw input
+artifacts, or any separately ingested private SDK. It does contain bulk
+derived material from the Xbox debug symbols, including extracted raw CodeView
+TPI record bodies and original debug-data source paths. The MIT License covers
+the project-authored software and documentation only; no separate database
+license or conclusion about third-party redistribution rights is asserted.
+
 ## What authors can use now
 
 | Goal | What the atlas provides |
